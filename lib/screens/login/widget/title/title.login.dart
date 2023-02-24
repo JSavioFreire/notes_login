@@ -15,7 +15,7 @@ class TitleLogin extends StatelessWidget {
               style: TextStyle(
                 fontSize: 45,
                 fontWeight: FontWeight.w700,
-                color: ThemeColors.myWhite,
+                color: ThemeColors.color4,
               ),
               children: <TextSpan>[
                 TextSpan(
@@ -23,12 +23,12 @@ class TitleLogin extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.w500,
-                        color: ThemeColors.myWhite))
+                        color: ThemeColors.color4))
               ]),
         ),
         const Text(
           'Bem vindo de volta',
-          style: TextStyle(color: ThemeColors.myWhite, fontSize: 18),
+          style: TextStyle(color: ThemeColors.color4, fontSize: 18),
         )
       ]),
     );

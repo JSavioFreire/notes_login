@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_login/provider/functions/functions_provider.dart';
 import 'package:notes_login/screens/login/widget/buttons/elevatedbutton_blue.dart';
 import 'package:notes_login/screens/login/widget/buttons/textbutton_change_screen.dart';
+import 'package:notes_login/screens/login/widget/form/box_text_form_field.dart';
 import 'package:notes_login/theme/theme_colors.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,7 @@ class RegisterForm extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 20),
                 child: Text(
                   'Crie sua conta',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: ThemeColors.color4),
                 ),
               ),
               SizedBox(
@@ -36,14 +37,10 @@ class RegisterForm extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.only(left: 20),
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: ThemeColors.myWhite,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
+                    BoxTextFormField(
+                      inside: TextFormField(
                         controller: name,
+                        style: const TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Digite seu nome',
@@ -58,14 +55,10 @@ class RegisterForm extends StatelessWidget {
                         },
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 20),
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: ThemeColors.myWhite,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
+                    BoxTextFormField(
+                      inside: TextFormField(
                         controller: email,
+                        style: const TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Digite seu email',
@@ -83,14 +76,10 @@ class RegisterForm extends StatelessWidget {
                         },
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 20),
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: ThemeColors.myWhite,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
+                    BoxTextFormField(
+                      inside: TextFormField(
                         controller: password,
+                        style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -109,14 +98,10 @@ class RegisterForm extends StatelessWidget {
                         },
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 20),
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: ThemeColors.myWhite,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
+                    BoxTextFormField(
+                      inside: TextFormField(
                         controller: passwordConfirm,
+                        style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         decoration: const InputDecoration(
                           border: InputBorder.none,

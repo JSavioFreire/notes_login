@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:notes_login/provider/functions/functions_provider.dart';
-import 'package:notes_login/theme/theme_colors.dart';
 import 'package:provider/provider.dart';
 
 class ElevatedButtonLoginRegister extends StatelessWidget {
@@ -41,7 +40,7 @@ class ElevatedButtonLoginRegister extends StatelessWidget {
                       height: 25,
                       width: 25,
                       child: CircularProgressIndicator(
-                        color: ThemeColors.myWhiteOpacity,
+                        color: Colors.white,
                       ))
                   : Text(
                       provider.loginOrRegister ? 'Login' : 'Cadastrar',

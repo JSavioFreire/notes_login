@@ -14,7 +14,7 @@ class CircularDesignBottom extends StatelessWidget {
         height: 400,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(200),
-            color: ThemeColors.myRedOpacity),
+            color: ThemeColors.color2Opacity),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_login/provider/functions/functions_provider.dart';
 import 'package:notes_login/screens/login/widget/buttons/elevatedbutton_blue.dart';
 import 'package:notes_login/screens/login/widget/buttons/textbutton_change_screen.dart';
-import 'package:notes_login/theme/theme_colors.dart';
+import 'package:notes_login/screens/login/widget/form/box_text_form_field.dart';
 import 'package:provider/provider.dart';
 
 class LoginForm extends StatelessWidget {
@@ -21,14 +21,10 @@ class LoginForm extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: ThemeColors.myWhite,
-                    borderRadius: BorderRadius.circular(10)),
-                child: TextFormField(
+              BoxTextFormField(
+                inside: TextFormField(
                     controller: email,
+                    style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Digite seu email',
@@ -47,15 +43,11 @@ class LoginForm extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: Container(
-                  padding: const EdgeInsets.only(left: 20),
-                  height: 50,
-                  decoration: BoxDecoration(
-                      color: ThemeColors.myWhite,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: TextFormField(
+                child: BoxTextFormField(
+                  inside: TextFormField(
                     controller: password,
                     obscureText: true,
+                    style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Digite sua senha',

@@ -17,7 +17,7 @@ class TextButtonChangeScreen extends StatelessWidget {
         },
         child: Text(
           text,
-          style: const TextStyle(color: ThemeColors.myWhite),
+          style: const TextStyle(color: ThemeColors.color4),
         ));
   }
 }

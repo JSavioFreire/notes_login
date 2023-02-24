@@ -14,7 +14,7 @@ class CircularDesignTop extends StatelessWidget {
         height: 150,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(75),
-            color: ThemeColors.myRedGradientOpacity),
+            color: ThemeColors.color3Opacity),
       ),
     );
   }
