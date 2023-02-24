@@ -24,10 +24,11 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  register(String email, String password) async {
+  register(String email, String password, String name) async {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await users!.updateDisplayName(name);
       getUser();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

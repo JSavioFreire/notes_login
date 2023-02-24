@@ -10,12 +10,36 @@ class FunctionsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool buttonInLoading = false;
+
   void login(BuildContext context, email, password) async {
+    buttonInLoading = true;
+    notifyListeners();
     try {
       await context.read<AuthProvider>().login(email.text, password.text);
+      buttonInLoading = false;
+      notifyListeners();
     } on AuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message)));
+      buttonInLoading = false;
+      notifyListeners();
+    }
+  }
+
+  void register(
+      BuildContext context, String email, String password, String name) async {
+    buttonInLoading = true;
+    notifyListeners();
+    try {
+      await context.read<AuthProvider>().register(email, password, name);
+      buttonInLoading = false;
+      notifyListeners();
+    } on AuthException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message)));
+      buttonInLoading = false;
+      notifyListeners();
     }
   }
 }

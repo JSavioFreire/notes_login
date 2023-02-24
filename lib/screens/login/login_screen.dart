@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:notes_login/provider/functions/functions_provider.dart';
 import 'package:notes_login/screens/login/components/login_form.dart';
 import 'package:notes_login/screens/login/components/register_form.dart';
-import 'package:notes_login/screens/login/widget/circular_design_bottom.dart';
-import 'package:notes_login/screens/login/widget/circular_design_top.dart';
-import 'package:notes_login/screens/login/widget/gradient_background.dart';
-import 'package:notes_login/screens/login/widget/title.login.dart';
+import 'package:notes_login/screens/login/widget/background/circular_design_bottom.dart';
+import 'package:notes_login/screens/login/widget/background/circular_design_top.dart';
+import 'package:notes_login/screens/login/widget/background/gradient_background.dart';
+import 'package:notes_login/screens/login/widget/title/title.login.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -26,8 +26,8 @@ class LoginScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  TitleLogin(),
-                  provider.loginOrRegister ? LoginForm() : RegisterForm()
+                  const TitleLogin(),
+                  provider.loginOrRegister ? const LoginForm() : const RegisterForm()
                 ],
               ),
             ),

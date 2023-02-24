@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_login/theme/theme_colors.dart';
 
 class TitleLogin extends StatelessWidget {
