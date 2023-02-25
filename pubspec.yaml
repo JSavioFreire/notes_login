@@ -18,6 +18,8 @@ dependencies:
   cloud_firestore: ^4.4.3
   firebase_auth: ^4.2.9
   google_fonts: ^4.0.3
+  flutter_statusbarcolor_ns: ^0.5.0
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:

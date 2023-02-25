@@ -42,4 +42,26 @@ class FunctionsProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  bool iconVisibility = true;
+  IconData icon = Icons.visibility_off;
+  bool passwordVisibility = true;
+
+  void changeVisibility() {
+    iconVisibility = !iconVisibility;
+    passwordVisibility = !passwordVisibility;
+    notifyListeners();
+    if (iconVisibility == false) {
+      icon = Icons.visibility;
+      notifyListeners();
+    } else {
+      icon = Icons.visibility_off;
+      notifyListeners();
+    }
+  }
+
+
+
+
+
 }

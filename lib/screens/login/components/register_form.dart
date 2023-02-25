@@ -33,11 +33,12 @@ class RegisterForm extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 400,
+                height: 450,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BoxTextFormField(
+                      icon: Icons.person,
                       inside: TextFormField(
                         controller: name,
                         style: const TextStyle(color: Colors.white),
@@ -56,6 +57,7 @@ class RegisterForm extends StatelessWidget {
                       ),
                     ),
                     BoxTextFormField(
+                      icon: Icons.email,
                       inside: TextFormField(
                         controller: email,
                         style: const TextStyle(color: Colors.white),
@@ -77,10 +79,12 @@ class RegisterForm extends StatelessWidget {
                       ),
                     ),
                     BoxTextFormField(
+                      icon: Icons.password,
+                      isPassword: true,
                       inside: TextFormField(
                         controller: password,
                         style: const TextStyle(color: Colors.white),
-                        obscureText: true,
+                        obscureText: value.passwordVisibility,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Digite sua senha',
@@ -99,10 +103,12 @@ class RegisterForm extends StatelessWidget {
                       ),
                     ),
                     BoxTextFormField(
+                      icon: Icons.password,
+                      isPassword: true,
                       inside: TextFormField(
                         controller: passwordConfirm,
                         style: const TextStyle(color: Colors.white),
-                        obscureText: true,
+                        obscureText: value.passwordVisibility,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Confirme sua senha',

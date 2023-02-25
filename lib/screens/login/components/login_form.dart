@@ -22,6 +22,7 @@ class LoginForm extends StatelessWidget {
           child: Column(
             children: [
               BoxTextFormField(
+                icon: Icons.email,
                 inside: TextFormField(
                     controller: email,
                     style: const TextStyle(color: Colors.white),
@@ -44,23 +45,31 @@ class LoginForm extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: BoxTextFormField(
-                  inside: TextFormField(
-                    controller: password,
-                    obscureText: true,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Digite sua senha',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Campo vazio. Digite sua senha!';
-                      } else if (value.length < 6) {
-                        return 'Sua senha deve ter no mínimo 6 caracteres!';
-                      }
-                      return null;
-                    },
+                  icon: Icons.password,
+                  isPassword: true,
+                  inside: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: password,
+                          obscureText: value.passwordVisibility,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Digite sua senha',
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Campo vazio. Digite sua senha!';
+                            } else if (value.length < 6) {
+                              return 'Sua senha deve ter no mínimo 6 caracteres!';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

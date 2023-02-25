@@ -16,7 +16,7 @@ class MyHeader extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: Colors.white,
+            color: ThemeColors.color2Light,
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.5),

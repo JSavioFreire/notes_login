@@ -7,14 +7,15 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-     SizedBox(
-                width: 100,
-                height: 40,
-                child: ElevatedButton(
-                    onPressed: () => (context).read<AuthProvider>().logout(),
-                    child: const Text('Sair')),
-              )
-    ;
+    return SizedBox(
+      width: 150,
+      height: 60,
+      child: ElevatedButton(
+          onPressed: () => (context).read<AuthProvider>().logout(),
+          child: const Text(
+            'Sair',
+            style: TextStyle(fontSize: 17),
+          )),
+    );
   }
 }
