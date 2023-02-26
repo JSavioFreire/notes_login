@@ -10,7 +10,7 @@ class MyFAB extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () {
         Navigator.pushNamed(context, '/new');
-        (context).read<DataBaseProvider>().toDb(context);
+        (context).read<DataBaseProvider>().createToDb();
       },
       child: const Icon(Icons.add),
     );

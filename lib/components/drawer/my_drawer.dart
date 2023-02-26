@@ -10,7 +10,7 @@ class MyDrawer extends Drawer {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: ThemeColors.color2,
+        backgroundColor: ThemeColors.color2Light,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 50, 8, 20),
           child: Column(

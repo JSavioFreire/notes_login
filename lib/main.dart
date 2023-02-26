@@ -21,7 +21,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => AuthProvider()),
       ChangeNotifierProvider(create: (context) => FunctionsProvider()),
-      ChangeNotifierProvider(create: (context) => DataBaseProvider()),
+      ChangeNotifierProvider(create: (context) => DataBaseProvider(context: context)),
 
     ],
     child: const MyApp(),
