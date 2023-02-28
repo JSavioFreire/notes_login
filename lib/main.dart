@@ -23,7 +23,7 @@ void main() async {
       ChangeNotifierProvider(create: (context) => AuthProvider()),
       ChangeNotifierProvider(create: (context) => FunctionsProvider()),
       ChangeNotifierProvider(create: (context) => DataBaseProvider(context: context)),
-      ChangeNotifierProvider(create: (context) => ChangeStyleColorProvider())
+      ChangeNotifierProvider(create: (context) => ChangeStyleColorProvider(context: context))
 
     ],
     child: const MyApp(),

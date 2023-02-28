@@ -26,21 +26,24 @@ class SwitchColor extends StatelessWidget {
                   mainAxisSpacing: 25,
                   crossAxisSpacing: 10),
               itemCount: ThemeColors.allCardColors.length,
-              itemBuilder: (context, index) => Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    for (int i = 0; i < 5; i++)
-                      Container(
-                        width: 15,
-                        color: ThemeColors
-                            .allCardColors[provider.stylePostItColor[provider.styleColor]]![i],
-                      )
-                  ],
+              itemBuilder: (context, index) => InkWell(
+                onTap: () => provider.changeColor(index),
+                child: Ink(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (int i = 0; i < 5; i++)
+                        Container(
+                          width: 15,
+                          color: ThemeColors
+                              .allCardColors[provider.stylePostItColor[index]]![i],
+                        )
+                    ],
+                  ),
                 ),
               ),
             ),

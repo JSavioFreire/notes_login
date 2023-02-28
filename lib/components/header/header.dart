@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:notes_login/provider/color/change_style_color_provider.dart';
 import 'package:notes_login/theme/theme_colors.dart';
+import 'package:provider/provider.dart';
 
 class MyHeader extends StatelessWidget {
   const MyHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ChangeStyleColorProvider colorProvider =
+        Provider.of<ChangeStyleColorProvider>(context);
     final search = TextEditingController();
 
     return Padding(
@@ -16,7 +20,8 @@ class MyHeader extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            color: ThemeColors.color2Light,
+            color: ThemeColors.allCardColors[
+                colorProvider.stylePostItColor[colorProvider.styleColor]]![0],
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
