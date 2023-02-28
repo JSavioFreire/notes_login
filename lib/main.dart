@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:notes_login/firebase_options.dart';
 import 'package:notes_login/provider/auth/auth_provider.dart';
+import 'package:notes_login/provider/color/change_style_color_provider.dart';
 import 'package:notes_login/provider/db/db_provider.dart';
 import 'package:notes_login/provider/functions/functions_provider.dart';
 import 'package:notes_login/screens/new_edit/new_edit.dart';
@@ -22,6 +23,7 @@ void main() async {
       ChangeNotifierProvider(create: (context) => AuthProvider()),
       ChangeNotifierProvider(create: (context) => FunctionsProvider()),
       ChangeNotifierProvider(create: (context) => DataBaseProvider(context: context)),
+      ChangeNotifierProvider(create: (context) => ChangeStyleColorProvider())
 
     ],
     child: const MyApp(),

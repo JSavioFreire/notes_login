@@ -44,10 +44,14 @@ class DataBaseProvider extends ChangeNotifier {
 
   void edit({NoteModel? note, dynamic color}) {
     int thisColor = 0;
+
     if (color != null) {
       thisColor = color;
     }
     if (note != null) {
+      if (color == null) {
+        thisColor = note.color;
+      }
       NoteModel notes = NoteModel(
           id: note.id,
           title: title.text,

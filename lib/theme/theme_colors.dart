@@ -10,11 +10,24 @@ class ThemeColors {
   static const Color color4 = Color.fromRGBO(65, 62, 72, 1);
   static const Color color4Opacity = Color.fromRGBO(65, 62, 72, 0.4);
 
-  static const List<Color> cardColor = [
-    Color.fromRGBO(249, 236, 210, 1),
-    Color.fromRGBO(229, 185, 250, 1),
-    Color.fromRGBO(222, 248, 250, 1),
-    Color.fromRGBO(250, 197, 228, 1),
-    Color.fromRGBO(189, 250, 185, 1)
-  ];
+  static Map<String, List> allCardColors = {
+    'initial': [
+      const Color.fromRGBO(249, 236, 210, 1),
+      const Color.fromRGBO(229, 185, 250, 1),
+      const Color.fromRGBO(222, 248, 250, 1),
+      const Color.fromRGBO(250, 197, 228, 1),
+      const Color.fromRGBO(189, 250, 185, 1)
+    ],
+    'light': [
+      const Color.fromRGBO(145, 56, 0, 1),
+      const Color.fromRGBO(22, 15, 50, 1),
+      const Color.fromRGBO(222, 248, 50, 1),
+      const Color.fromRGBO(250, 17, 228, 1),
+      const Color.fromRGBO(19, 250, 185, 1)
+    ],
+    'dark': [],
+    'eletric': [],
+    'strong': [],
+    'amazing': []
+  };
 }

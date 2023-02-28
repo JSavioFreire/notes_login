@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_login/components/showToDelete/show_to_delete.dart';
 import 'package:notes_login/model/note_model.dart';
+import 'package:notes_login/provider/color/change_style_color_provider.dart';
 import 'package:notes_login/provider/db/db_provider.dart';
 import 'package:notes_login/theme/theme_colors.dart';
 import 'package:provider/provider.dart';
@@ -15,16 +17,20 @@ class EachNote extends StatelessWidget {
     DateFormat formatData = DateFormat('dd/MM/yyyy');
 
     DataBaseProvider provider = Provider.of<DataBaseProvider>(context);
+      ChangeStyleColorProvider colorProvider =
+        Provider.of<ChangeStyleColorProvider>(context);
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/new', arguments: {'note': note});
         provider.openingNote(note);
       },
-      onLongPress: () => provider.delete(note),
+      onLongPress: () => showDialog(
+          context: context,
+          builder: (context) => ShowToDelete(noteToDelete: note)),
       child: Ink(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: ThemeColors.cardColor[note.color],
+          color: ThemeColors.allCardColors[colorProvider.stylePostItColor[colorProvider.styleColor]]![note.color],
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
