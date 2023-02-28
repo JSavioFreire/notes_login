@@ -11,10 +11,10 @@ class ThemeColors {
   static const Color color4Opacity = Color.fromRGBO(65, 62, 72, 0.4);
 
   static const List<Color> cardColor = [
+    Color.fromRGBO(249, 236, 210, 1),
     Color.fromRGBO(229, 185, 250, 1),
     Color.fromRGBO(222, 248, 250, 1),
     Color.fromRGBO(250, 197, 228, 1),
-    Color.fromRGBO(189, 250, 185, 1),
-    Color.fromRGBO(173, 158, 128, 1)
+    Color.fromRGBO(189, 250, 185, 1)
   ];
 }

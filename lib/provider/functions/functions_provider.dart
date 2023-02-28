@@ -59,9 +59,4 @@ class FunctionsProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-
-
-
-
 }

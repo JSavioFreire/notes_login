@@ -14,11 +14,11 @@ class NewEdit extends StatelessWidget {
 
     DataBaseProvider db = Provider.of<DataBaseProvider>(context);
     return Scaffold(
-      backgroundColor: ThemeColors.color2Light,
+      backgroundColor: ThemeColors.cardColor[db.color],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const HeaderNewEdit(),
+          HeaderNewEdit(note: arguments['note']),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(

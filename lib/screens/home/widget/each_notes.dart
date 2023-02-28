@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_login/model/note_model.dart';
 import 'package:notes_login/provider/db/db_provider.dart';
 import 'package:notes_login/theme/theme_colors.dart';
@@ -10,15 +11,20 @@ class EachNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime date = DateTime.parse(note.editTime);
+    DateFormat formatData = DateFormat('dd/MM/yyyy');
+
+    DataBaseProvider provider = Provider.of<DataBaseProvider>(context);
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/new', arguments: {'note': note});
-        (context.read<DataBaseProvider>().openingNote(note));
+        provider.openingNote(note);
       },
+      onLongPress: () => provider.delete(note),
       child: Ink(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: ThemeColors.color2Light,
+          color: ThemeColors.cardColor[note.color],
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
@@ -29,22 +35,32 @@ class EachNote extends StatelessWidget {
             )
           ],
         ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            note.title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          Text(
-            note.content,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 6,
-          )
-        ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                note.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Text(
+                note.content,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 6,
+              ),
+            ]),
+            Text(
+              'Ultima modificação: ${formatData.format(date)}',
+              style: TextStyle(fontSize: 9, color: Colors.grey[700]),
+            )
+          ],
+        ),
       ),
     );
   }
