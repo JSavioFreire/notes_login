@@ -16,7 +16,12 @@ class HomeScreen extends StatelessWidget {
     DataBaseProvider dbProvider = Provider.of<DataBaseProvider>(context);
     ChangeStyleColorProvider colorProvider =
         Provider.of<ChangeStyleColorProvider>(context);
-    dbProvider.fromDb();
+
+    if (dbProvider.search.text.isEmpty) {
+      dbProvider.fromDb();
+    } else {
+      dbProvider.searchDb();
+    }
     colorProvider.fromDb();
     return Scaffold(
       backgroundColor: ThemeColors.allCardColors[
@@ -27,17 +32,26 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           const MyHeader(),
           Expanded(
-            child: GridView.builder(
-              itemCount: dbProvider.allNotes.length,
-              padding: const EdgeInsets.all(20),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 15,
-                crossAxisSpacing: 15,
-              ),
-              itemBuilder: (context, index) =>
-                  EachNote(note: dbProvider.allNotes[index]),
-            ),
+            child: dbProvider.allNotes.isEmpty
+                ? const Padding(
+                    padding: EdgeInsets.only(top: 100),
+                    child: Text(
+                      'Você ainda não tem anotações',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  )
+                : GridView.builder(
+                    itemCount: dbProvider.allNotes.length,
+                    padding: const EdgeInsets.all(20),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 15,
+                      crossAxisSpacing: 15,
+                    ),
+                    itemBuilder: (context, index) =>
+                        EachNote(note: dbProvider.allNotes[index]),
+                  ),
           ),
         ],
       ),

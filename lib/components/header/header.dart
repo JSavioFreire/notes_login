@@ -47,6 +47,7 @@ class MyHeader extends StatelessWidget {
             Expanded(
                 child: TextFormField(
               controller: dbProvider.search,
+              onChanged: (value) => dbProvider.searchDb(),
               decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Busque suas anotações',

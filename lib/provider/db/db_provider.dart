@@ -98,6 +98,41 @@ class DataBaseProvider extends ChangeNotifier {
     thisColor = snapshotOne['color'];
   }
 
+  void searchDb() async {
+    List<NoteModel> temp = [];
+    List<String> tempId = [];
+
+    QuerySnapshot<Map<String, dynamic>> searchToTitleList = await db
+        .collection(authProvider.users!.uid)
+        .where('title', isGreaterThanOrEqualTo: search.text)
+        .where('title', isLessThan: '${search.text}z')
+        .get();
+
+    QuerySnapshot<Map<String, dynamic>> searchToContentList = await db
+        .collection(authProvider.users!.uid)
+        .where('content', isGreaterThanOrEqualTo: search.text)
+        .where('content', isLessThan: '${search.text}z')
+        .get();
+
+    for (var doc in searchToTitleList.docs) {
+      NoteModel note = NoteModel.fromMap(doc.data());
+      if (!tempId.contains(note.id)) {
+        temp.add(note);
+        tempId.add(note.id);
+      }
+    }
+    for (var doc in searchToContentList.docs) {
+      NoteModel note = NoteModel.fromMap(doc.data());
+      if (!tempId.contains(note.id)) {
+        temp.add(note);
+        tempId.add(note.id);
+      }
+    }
+
+    allNotes = temp;
+    notifyListeners();
+  }
+
   void delete(NoteModel note) {
     db.collection(authProvider.users!.uid).doc(note.id).delete();
     notifyListeners();
