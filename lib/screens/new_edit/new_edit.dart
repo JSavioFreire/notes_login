@@ -17,7 +17,8 @@ class NewEdit extends StatelessWidget {
     ChangeStyleColorProvider colorProvider =
         Provider.of<ChangeStyleColorProvider>(context);
     return Scaffold(
-      backgroundColor: ThemeColors.allCardColors[colorProvider.stylePostItColor[colorProvider.styleColor]]![db.color],
+      backgroundColor: ThemeColors.allCardColors[
+          colorProvider.stylePostItColor[colorProvider.styleColor]]![db.color],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

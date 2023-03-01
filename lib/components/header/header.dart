@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_login/provider/color/change_style_color_provider.dart';
+import 'package:notes_login/provider/db/db_provider.dart';
 import 'package:notes_login/theme/theme_colors.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +11,7 @@ class MyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     ChangeStyleColorProvider colorProvider =
         Provider.of<ChangeStyleColorProvider>(context);
-    final search = TextEditingController();
+    DataBaseProvider dbProvider = Provider.of<DataBaseProvider>(context);
 
     return Padding(
       padding: const EdgeInsets.only(top: 30),
@@ -45,7 +46,7 @@ class MyHeader extends StatelessWidget {
             ),
             Expanded(
                 child: TextFormField(
-              controller: search,
+              controller: dbProvider.search,
               decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Busque suas anotações',
@@ -58,7 +59,3 @@ class MyHeader extends StatelessWidget {
     );
   }
 }
-
-
-
-//Text('Olá ${provider.users!.displayName}')

@@ -19,7 +19,8 @@ class HomeScreen extends StatelessWidget {
     dbProvider.fromDb();
     colorProvider.fromDb();
     return Scaffold(
-      backgroundColor: ThemeColors.allCardColors[colorProvider.stylePostItColor[colorProvider.styleColor]]![0],
+      backgroundColor: ThemeColors.allCardColors[
+          colorProvider.stylePostItColor[colorProvider.styleColor]]![0],
       drawer: const MyDrawer(),
       floatingActionButton: const MyFAB(),
       body: Column(

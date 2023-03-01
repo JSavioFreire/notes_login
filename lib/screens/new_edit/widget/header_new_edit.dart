@@ -30,7 +30,8 @@ class HeaderNewEdit extends StatelessWidget {
             for (var i = 0;
                 i <
                     ThemeColors
-                        .allCardColors[colorProvider.stylePostItColor[colorProvider.styleColor]]!
+                        .allCardColors[colorProvider
+                            .stylePostItColor[colorProvider.styleColor]]!
                         .length;
                 i++)
               Padding(
@@ -46,8 +47,8 @@ class HeaderNewEdit extends StatelessWidget {
                       height: 22,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black, width: 1),
-                        color: ThemeColors.allCardColors[
-                            colorProvider.stylePostItColor[colorProvider.styleColor]]![i],
+                        color: ThemeColors.allCardColors[colorProvider
+                            .stylePostItColor[colorProvider.styleColor]]![i],
                       ),
                       child: (dbProvider.color == i)
                           ? const Icon(

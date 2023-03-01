@@ -16,6 +16,8 @@ class DataBaseProvider extends ChangeNotifier {
 
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
+  TextEditingController search = TextEditingController();
+
   int color = 0;
 
   dynamic idNote;
@@ -42,16 +44,14 @@ class DataBaseProvider extends ChangeNotifier {
     color = note.color;
   }
 
-  void edit({NoteModel? note, dynamic color}) {
-    int thisColor = 0;
+  int thisColor = 0;
 
+  void edit({NoteModel? note, dynamic color}) {
     if (color != null) {
       thisColor = color;
     }
     if (note != null) {
-      if (color == null) {
-        thisColor = note.color;
-      }
+      pickColorFromDb(note);
       NoteModel notes = NoteModel(
           id: note.id,
           title: title.text,
@@ -90,6 +90,12 @@ class DataBaseProvider extends ChangeNotifier {
     }
     allNotes = temp;
     notifyListeners();
+  }
+
+  void pickColorFromDb(NoteModel note) async {
+    DocumentSnapshot<Map<String, dynamic>> snapshotOne =
+        await db.collection(authProvider.users!.uid).doc(note.id).get();
+    thisColor = snapshotOne['color'];
   }
 
   void delete(NoteModel note) {
